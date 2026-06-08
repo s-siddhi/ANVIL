@@ -1,0 +1,13 @@
+#local database
+anvil_db.json
+
+#python cache
+__pycache__/
+*.pyc
+venv/
+env/
+
+#windows system files
+thumbs.db
+desktop.ini
+

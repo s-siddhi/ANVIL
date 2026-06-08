@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANVIL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header-container" style="position: relative; max-width: 1100px; margin: 20px auto 40px auto; display: flex; justify-content: center; align-items: center;">
+        <span class="logo">ANVIL</span>
+        <button id="logout-btn" style="position: absolute; right: 0; background: transparent; border: 1px solid #444; color: #888; padding: 8px 15px; font-size: 0.8rem; display: none;">Logout</button>
+    </div>
+
+    <!-- Removed the 'dashboard' class from here -->
+    <main style="max-width: 1100px; margin: 0 auto; width: 100%;">
+        
+        <!-- AUTHENTICATION SCREEN -->
+        <section class="card" id="auth-section" style="max-width: 400px; margin: 0 auto;">
+            <h2 style="text-align: center;">System Access</h2>
+            <div class="input-group" style="flex-direction: column;">
+                <input type="text" id="auth-username" placeholder="Username">
+                <input type="password" id="auth-password" placeholder="Password">
+                <button id="login-btn" style="margin-top: 10px;">Login</button>
+                <button id="signup-btn" style="background-color: #333333; color: #e6e4d8; margin-top: 5px;">Create Account</button>
+            </div>
+            <p id="auth-error" style="color: #ef4444; margin-top: 15px; text-align: center; font-size: 0.9rem;"></p>
+        </section>
+
+        <!-- DASHBOARD CONTAINER (Restored the 'dashboard' class here) -->
+        <div id="dashboard-content" class="dashboard" style="display: none;">
+            
+            <section class="card" id="goals-section">
+                <h2>Daily Tasks</h2>
+                <div class="input-group">
+                    <input type="text" id="new-task-input" placeholder="Enter sprint task...">
+                    <button id="add-task-btn">Add</button>
+                </div>
+                <div id="tasks-list" class="tasks-list"></div>
+            </section>
+
+            <section class="card" id="nutrition-section">
+                <h2>Nutrition Tracker</h2>
+                <div class="target-setup" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #333;">
+                    <p class="subtitle">Set Today's Targets</p>
+                    <div class="input-group">
+                        <input type="number" id="set-target-cals" placeholder="Target Cals (e.g. 2500)">
+                        <input type="number" id="set-target-protein" placeholder="Target Pro (e.g. 160)">
+                        <button id="save-targets-btn">Set</button>
+                    </div>
+                </div>
+                <p class="subtitle">Log Meal</p>
+                <div class="macro-grid">
+                    <div class="macro-box">
+                        <label>Calories</label>
+                        <input type="number" id="calories-input" placeholder="0">
+                    </div>
+                    <div class="macro-box">
+                        <label>Protein</label>
+                        <input type="number" id="protein-input" placeholder="0">
+                    </div>
+                </div>
+                <button id="log-macros-btn" class="full-width-btn">Log Macros</button>
+                <div class="macro-totals">
+                    <p>Total Calories: <span id="total-cals" class="highlight">0</span> <span class="target-text">/ <span id="target-cals-display">0</span> kcal</span></p>
+                    <p>Total Protein: <span id="total-protein" class="highlight">0</span> <span class="target-text">/ <span id="target-protein-display">0</span> g</span></p>
+                </div>
+            </section>
+
+            <section class="card" id="mirror-section">
+                <h2>Daily Mirror</h2>
+                <p class="subtitle">Your 7-Day Execution Ledger</p>
+                <div id="history-list" class="history-list"></div>
+            </section>
+
+            <section class="card" id="matrix-section">
+                <h2>Consistency Matrix</h2>
+                <p class="subtitle">Last 28 Days</p>
+                <div id="github-grid" class="github-grid"></div>
+            </section>
+
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
