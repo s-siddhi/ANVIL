@@ -25,7 +25,7 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
     if (!u || !p) return;
     
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/signup", {
+        const res = await fetch("https://anvil-backend-1ciy.onrender.com/api/signup", {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: u, password: p })
         });
@@ -44,7 +44,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
     if (!u || !p) return;
     
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/login", {
+        const res = await fetch("https://anvil-backend-1ciy.onrender.com/api/login", {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: u, password: p })
         });
@@ -69,7 +69,7 @@ async function bootDashboard() {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/dashboard", {
+        const response = await fetch("https://anvil-backend-1ciy.onrender.com/api/dashboard", {
             headers: { "x-user": currentUser } 
         });
 
@@ -123,7 +123,7 @@ async function syncTasks() {
     });
     
     try {
-        await fetch("http://127.0.0.1:8000/api/tasks", {
+        await fetch("https://anvil-backend-1ciy.onrender.com/api/tasks", {
             method: "PUT",
             headers: { "Content-Type": "application/json", "x-user": currentUser },
             body: JSON.stringify(tasks)
